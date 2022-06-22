@@ -1,5 +1,6 @@
 """Defining some constants that will be universally used in all files."""
 
+# Small Change Made. DELETE LATER
 # Constants relating to the size of the screen.
 MAX_X: int = 250
 MAX_Y: int = 250
