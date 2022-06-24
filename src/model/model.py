@@ -44,6 +44,10 @@ class Model:
                 brick.hit_brick()
                 if brick.is_dead():
                     self.bricks.remove(brick)
+                    if brick.type == "two":
+                        self.ball.change_directions(Vector(0.5 * self.ball.vector.x_vector, 0.5 * self.ball.vector.y_vector))
+                    elif brick.type == "three":
+                        self.ball.change_directions(Vector(2 * self.ball.vector.x_vector, 2 * self.ball.vector.y_vector))
                     
             elif (brick.y - BRICK_HEIGHT <= ball_y <= brick.y 
                 and ((ball_x - LAMDA <= brick.x <= ball_x + LAMDA) 
@@ -52,6 +56,10 @@ class Model:
                 brick.hit_brick()
                 if brick.is_dead():
                     self.bricks.remove(brick)
+                    if brick.type == "two":
+                        self.ball.change_directions(Vector(0.5 * self.ball.vector.x_vector, 0.5 * self.ball.vector.y_vector))
+                    elif brick.type == "three":
+                        self.ball.change_directions(Vector(2 * self.ball.vector.x_vector, 2 * self.ball.vector.y_vector))
         
         # Check contact with Board.
         if (board_y - 5 < ball_y - BALL_RADIUS <= board_y 

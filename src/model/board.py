@@ -3,7 +3,7 @@
 from tkinter.tix import MAX
 from constants import BOARD_LENGTH, BOARD_START_X, BOARD_START_Y, MAX_X
 
-MOVE_LENGTH: int = 25
+MOVE_LENGTH: int = 50
 
 class Board:
     """Board of a user.
