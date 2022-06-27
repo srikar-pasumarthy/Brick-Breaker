@@ -80,11 +80,17 @@ class ViewController:
             self.pen.right(90)
             self.pen.forward(BRICK_HEIGHT)
             self.pen.end_fill()
-            
+                
         self.screen.update()
         
-        end_time = time_ns() // NS_TO_MS
-        next_tick = 30 - (end_time - start_time)
-        if next_tick < 0:
-            next_tick = 0
-        self.screen.ontimer(self.tick, next_tick)    
+        if not self.model.game_over():
+            end_time = time_ns() // NS_TO_MS
+            next_tick = 30 - (end_time - start_time)
+            if next_tick < 0:
+                next_tick = 0
+                
+            self.screen.ontimer(self.tick, next_tick)
+        else:
+            self.pen.clear()
+            self.pen.goto(0, 0)
+            self.pen.write("GAME OVER", move=True, align="center", font=('Arial', 24, 'normal'))

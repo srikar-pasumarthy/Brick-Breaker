@@ -6,7 +6,7 @@ from model.board import Board
 from model.brick import Brick
 from model.vector import Vector
 
-LAMDA: int = 0.3
+LAMDA: int = 3
 
 class Model:
     """Model class."""
@@ -21,14 +21,14 @@ class Model:
         self.board = board
         self.bricks = bricks
         
-    def tick(self):
+    def tick(self) -> None:
         """Updates the model every fractional second."""
         self.time += 1
         self.ball.tick()
         self.enforce_bounds_ball()        
         
         
-    def enforce_bounds_ball(self):
+    def enforce_bounds_ball(self) -> None:
         """Ensures that the ball does not escape the box."""
         ball_x: int = self.ball.x
         ball_y: int = self.ball.y
@@ -73,9 +73,7 @@ class Model:
         # Check contatc with top and bottom side.
         if (ball_y + BALL_RADIUS) >= MAX_Y:
             self.ball.change_directions(Vector(self.ball.vector.x_vector, -1 * self.ball.vector.y_vector))
-        elif (ball_y - BALL_RADIUS) <= -MAX_Y:
-            print("GAME OVER!")
-            quit()
             
-    def game_over(self):
+    def game_over(self) -> bool:
         """Checks to see if the game is over."""
+        return True if (self.ball.y + BALL_RADIUS <= -MAX_Y) or len(self.bricks) == 0 else False

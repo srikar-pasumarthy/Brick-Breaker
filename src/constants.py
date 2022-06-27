@@ -1,5 +1,6 @@
 """Defining some constants that will be universally used in all files."""
 
+import random
 from model.brick import Brick
 
 # Constants relating to the size of the screen.
@@ -9,8 +10,8 @@ MAX_Y: int = 250
 # Constants relating to ball.
 BALL_RADIUS: int = 10
 START_X: int = 0
-START_Y: int = 10
-START_VELOCITY_X: int = 5
+START_Y: int = 0
+START_VELOCITY_X: int = random.choice([-5, 5])
 START_VELOCITY_Y: int = -5
 
 # Constants relating to the board.
@@ -30,13 +31,13 @@ brick4 = Brick("one", 0, 100)
 brick5 = Brick("one", 75, 100)
 brick6 = Brick("one", 150, 100)
 
-brick8 = Brick("two", -150, 120)
-brick9 = Brick("two", -75, 120)
-brick10 = Brick("two", 0, 120)
-brick11 = Brick("two", 75, 120)
+brick8 = Brick("three", -150, 120)
+brick9 = Brick("three", -75, 120)
+brick10 = Brick("three", 0, 120)
+brick11 = Brick("three", 75, 120)
 
-brick13 = Brick("three", -75, 140)
-brick14 = Brick("three", 0, 140)
+brick13 = Brick("two", -75, 140)
+brick14 = Brick("two", 0, 140)
     
 LEVEL_ONE_BRICKS = [brick1, brick2, brick3, brick4, brick5, brick6, 
                     brick8, brick9, brick10, brick11, brick13, brick14]
