@@ -14,7 +14,7 @@ class ViewController:
     pen: Turtle
     model: Model
     
-    def __init__(self, model):
+    def __init__(self, model) -> None:
         """Constructor for the View Controller."""
         self.model = model
         self.screen = Screen()
@@ -27,12 +27,12 @@ class ViewController:
         self.pen.hideturtle()
         self.pen.speed(0) 
         
-    def start_simulation(self):
+    def start_simulation(self) -> None:
         """Started the turtle gfx."""
         self.tick()
         done()
         
-    def tick(self):
+    def tick(self) -> None:
         """Updates the model and redraws the visuals."""
         start_time = time_ns() // NS_TO_MS
         self.model.tick()

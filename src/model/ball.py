@@ -17,19 +17,19 @@ class Ball:
         self.x = x
         self.y = y
         
-    def change_directions(self, vector):
+    def change_directions(self, vector) -> None:
         """Changes the direction vector."""
         self.vector = vector
         
-    def set_x(self, x):
+    def set_x(self, x) -> None:
         """Setter for the x position."""        
         self.x = x
         
-    def set_y(self, y):
+    def set_y(self, y) -> None:
         """setter for the y position."""       
         self.y = y
         
-    def tick(self):
+    def tick(self) -> None:
         """Updates the position of the ball based on the current position and direction vector."""
         self.set_x(self.x + self.vector.x_vector)
         self.set_y(self.y + self.vector.y_vector)
