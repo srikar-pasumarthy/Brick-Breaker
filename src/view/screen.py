@@ -38,7 +38,9 @@ class ViewController:
         self.model.tick()
         self.screen.listen()
         self.screen.onkey(self.model.board.move_left, "Left")
+        self.screen.onkey(self.model.board.move_left, "h")
         self.screen.onkey(self.model.board.move_right, "Right")
+        self.screen.onkey(self.model.board.move_right, "l")
         self.pen.clear()
         
         # Draw the Ball.
