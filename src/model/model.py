@@ -38,7 +38,7 @@ class Model:
         # Check contact with the Bricks.
         for brick in self.bricks:
             if (brick.x <= ball_x <= brick.x + BRICK_LENGTH 
-                and ((brick.y - LAMDA <= ball_y - BALL_RADIUS <= brick.y + LAMDA) 
+                and ((brick.y - LAMDA <= ball_y <= brick.y + LAMDA) 
                      or (brick.y - LAMDA - BRICK_HEIGHT <= ball_y + BALL_RADIUS <= brick.y + LAMDA - BRICK_HEIGHT))):
                 self.ball.change_directions(Vector(self.ball.vector.x_vector, -1 * self.ball.vector.y_vector))
                 brick.hit_brick()
@@ -63,7 +63,7 @@ class Model:
         
         # Check contact with Board.
         if (board_y - 5 < ball_y - BALL_RADIUS <= board_y 
-            and board_x - BOARD_LENGTH + BALL_RADIUS < ball_x <= board_x + BOARD_LENGTH + BALL_RADIUS):
+            and board_x - BOARD_LENGTH < ball_x <= board_x + BOARD_LENGTH):
             self.ball.change_directions(Vector(self.ball.vector.x_vector, -1 * self.ball.vector.y_vector))
             
         # Check contact with left and right side.
